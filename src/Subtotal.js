@@ -9,7 +9,7 @@ function Subtotal() {
 
     const history = useHistory();
 
-    const [{ basket }, dispatch] = useStateValue();
+    const [ { basket }, dispatch ] = useStateValue();
 
     return (
         <div className="subtotal">

@@ -27,7 +27,7 @@ const paymentIntent = await Stripe.paymentIntent.create({
 
     // OK Created
     response.status(201).send({
-        slientSecret: paymentIntent.client_secret,
+        clientSecret: paymentIntent.client_secret,
     })
 })
 
