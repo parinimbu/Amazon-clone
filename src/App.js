@@ -42,26 +42,26 @@ function App() {
       <div className="App">
       
         <Switch>
-        <Route path="/login">
+          <Route path="/login">
            <Login />
           </Route>
           
           <Route path="/checkout">
-          <Header />
-             <Checkout /> 
+            <Header />
+            <Checkout /> 
           </Route>
 
           <Route path="/payment">
           <Header />
-          <Elements stripe={promise}>
+            <Elements stripe={promise}>
           <Payment />
           </Elements>
             
           </Route>
 
           <Route path="/">
-          <Header />
-             <Home />
+            <Header />
+            <Home />
           </Route>
         
         </Switch>

@@ -3,7 +3,7 @@ import './Payment.css'
 import { useStateValue } from './StateProvider';
 import CheckoutProduct from './CheckoutProduct';
 import { Link, useHistory } from 'react-router-dom';
-import { CardElement, cardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 import { getBasketTotal } from './reducer';
 import axios from './axios';
@@ -46,7 +46,7 @@ function Payment() {
 
         const payload = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
-                card: elements.getElement(cardElement)
+                card: elements.getElement(CardElement)
             }
         }).then(({ paymentIntent }) => {
             //paymentIntent = payment confirmation
@@ -124,9 +124,10 @@ function Payment() {
                                     decimalScale={2}
                                     value={getBasketTotal(basket)}
                                     displayType={'text'}
+                                    thousandSeparator={true}
                                     prefix={"$"}
                                 />
-                                <button disabled={processing || disabled || succeeded}>
+                                <button disabled={ processing || disabled || succeeded }>
                                     <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
                                 </button>
                             </div>
