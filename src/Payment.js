@@ -55,11 +55,11 @@ function Payment() {
             setError(null);
             setProcessing(false)
 
-            dispatch({
+           /*dispatch({
                 type:'EMPTY_BASKET'
-            })
+            }) */ 
 
-            history.replace('/orders')
+            history.replace('/orders') 
         })
     }
 
